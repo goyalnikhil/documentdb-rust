@@ -13,6 +13,9 @@ struct DocumentDbSecret {
     port: u64,
 }
 
+//
+// Function to retrieve credentials from AWS Secrets Manager
+//
 async fn get_secret(secret_name: &str) -> Result<DocumentDbSecret, SecretsError> {
     let config = aws_config::load_defaults(BehaviorVersion::latest()).await;
     let client = SecretsManagerClient::new(&config);
@@ -28,6 +31,7 @@ async fn get_secret(secret_name: &str) -> Result<DocumentDbSecret, SecretsError>
     Ok(secret)
 }
 
+// 'C' of CRUD functions
 async fn create_document(database: &Database) -> Result<(), Box<dyn Error>> {
     let collection = database.collection("mycollection");
 
@@ -43,7 +47,7 @@ async fn create_document(database: &Database) -> Result<(), Box<dyn Error>> {
 
     Ok(())
 }
-
+// 'R' of CRUD functions
 async fn read_document(database: &Database) -> Result<(), Box<dyn Error>> {
     let collection = database.collection::<Document>("mycollection");
 
@@ -58,6 +62,7 @@ async fn read_document(database: &Database) -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
+// 'U' of CRUD functions 
 async fn update_document(database: &Database) -> Result<(), Box<dyn Error>> {
     let collection = database.collection::<Document>("mycollection");
 
@@ -76,6 +81,7 @@ async fn update_document(database: &Database) -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
+// 'D' of CRUD functions 
 async fn delete_document(database: &Database) -> Result<(), Box<dyn Error>> {
     let collection = database.collection::<Document>("mycollection");
 
@@ -120,7 +126,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
     let _result = database.run_command(doc! { "ping": 1 }).await?;
     println!("Connected to Amazon DocumentDB using credentials from Secrets Manager! Respose: {}", _result);
 
-    //Set of CRUD operations 
+    //Set of CRUD operations executed based on user input via command line
     match op.as_str() {
         //Create a document
         "C" | "c" => create_document(&database).await?,
