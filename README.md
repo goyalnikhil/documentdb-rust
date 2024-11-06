@@ -79,7 +79,7 @@ This should generate output similar to below.
 ```
 [ec2-user@ip-xxxxxxxxx documentdb-rust]$ cargo r -- --op c --secret xxxxxx
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.22s
-     Running `target/debug/documentdb-rust c`
+     Running `target/debug/documentdb-rust --op c --secret xxxxxx`
 Connected to Amazon DocumentDB using credentials from Secrets Manager!
  Ping respose: { "ok": 1, "operationTime": Timestamp(1730126391, 1) }
 Document inserted!
@@ -98,9 +98,9 @@ cargo r -- --op r --secret <secret>
 This should generate output similar to below.
 
 ```
-[ec2-user@ip-xxxxxxxxx documentdb-rust]$ cargo r -- r
+[ec2-user@ip-xxxxxxxxx documentdb-rust]$ cargo r -- --op r --secret xxxxxx
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.28s
-     Running `target/debug/documentdb-rust r`
+     Running `target/debug/documentdb-rust --op r --secret xxxxxx`
 Connected to Amazon DocumentDB using credentials from Secrets Manager!
  Ping respose: { "ok": 1, "operationTime": Timestamp(1730137680, 1) }
 Some(
@@ -122,7 +122,7 @@ Some(
 ```
 
 #### 'U'pdate the document
-Passing a command line argument `u` updates the document, you can use below command.
+Passing a command line argument `--op u` updates the document, you can use below command.
 
 ```
 cargo r -- --op u --secret <secret>
@@ -133,9 +133,9 @@ cargo r -- --op u --secret <secret>
 This shdould generate output similar to below.
 
 ```
-[ec2-user@ip-xxxxxxxx documentdb-rust]$ cargo r -- u
+[ec2-user@ip-xxxxxxxx documentdb-rust]$ cargo r -- --op u --secret xxxxxx
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.22s
-     Running `target/debug/documentdb-rust u`
+     Running `target/debug/documentdb-rust --op u --secret xxxxxx`
 Connected to Amazon DocumentDB using credentials from Secrets Manager!
  Ping respose: { "ok": 1, "operationTime": Timestamp(1730145700, 1) }
 Document updated!
@@ -143,7 +143,7 @@ Document updated!
 The updated document can be viewed by running qurey via mongo shell against the database.
 
 #### 'D'elete the created document
-Passing a command line argument `d` reads the document, you can use below command.
+Passing a command line argument `--op d` reads the document, you can use below command.
 
 ```
 cargo r -- --op d --secret <secret>
@@ -154,9 +154,9 @@ cargo r -- --op d --secret <secret>
 This should generate output similar to below.
 
 ```
-[ec2-user@ip-xxxxxxxx documentdb-rust]$ cargo r -- d
+[ec2-user@ip-xxxxxxxx documentdb-rust]$ cargo r -- --op d --secret xxxxxx
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.20s
-     Running `target/debug/documentdb-rust d`
+     Running `target/debug/documentdb-rust --op d --secret xxxxxx`
 Connected to Amazon DocumentDB using credentials from Secrets Manager!
  Ping respose: { "ok": 1, "operationTime": Timestamp(1730145950, 1) }
 Document deleted!
