@@ -25,7 +25,7 @@ git clone https://github.com/aws-samples/amazon-documentdb-samples.git
 ## Step 2: TLS setup
 
 > [!NOTE]
-> If your DocuemntDB cluster is setup without TLS, you can skip this step.
+> If your DocumentDB cluster is setup without TLS, you can skip this step.
 
 Downloaded the AWS RDS global certificates bundle `global-bundle.pem` file into the home diretory of the EC2 instance using below command.
 ```
@@ -72,7 +72,7 @@ Passing a command line argument `--op c` creates a document, you can use below c
 cargo r -- --op c --secret <secret>
 ```
 > [!NOTE]
-> If your DocuemntDB cluster is setup with TLS, add the `--tls` option to the command line above.
+> If your DocumentDB cluster is setup with TLS, add the `--tls` option to the command line above.
 
 This should generate output similar to below.
 
@@ -93,7 +93,7 @@ Passing a command line argument `--op r` reads the document, you can use below c
 cargo r -- --op r --secret <secret>
 ```
 > [!NOTE]
-> If your DocuemntDB cluster is setup with TLS, add the `--tls` option to the command line above.
+> If your DocumentDB cluster is setup with TLS, add the `--tls` option to the command line above.
 
 This should generate output similar to below.
 
@@ -128,7 +128,7 @@ Passing a command line argument `--op u` updates the document, you can use below
 cargo r -- --op u --secret <secret>
 ```
 > [!NOTE]
-> If your DocuemntDB cluster is setup with TLS, add the `--tls` option to the command line above.
+> If your DocumentDB cluster is setup with TLS, add the `--tls` option to the command line above.
 
 This shdould generate output similar to below.
 
@@ -149,7 +149,7 @@ Passing a command line argument `--op d` reads the document, you can use below c
 cargo r -- --op d --secret <secret>
 ```
 > [!NOTE]
-> If your DocuemntDB cluster is setup with TLS, add the `--tls` option to the command line above.
+> If your DocumentDB cluster is setup with TLS, add the `--tls` option to the command line above.
 
 This should generate output similar to below.
 
